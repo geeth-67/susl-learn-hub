@@ -1,46 +1,80 @@
-# SUSL LearnHub
+# PROJECT DOCUMENTATION: LEARN HUB SUSL
 
-A simple study resource website for first-semester Information Systems students at Sabaragamuwa University of Sri Lanka. It is built with HTML, CSS, and plain JavaScript.
+---
 
-## Open the website
+## 📋 DOCUMENT CONTROL & COVER METADATA
 
-Open `index.html` in a web browser. No installation or build step is needed. An internet connection is used to load the Google Fonts; the site itself uses local files.
+| Metadata Field | Project Detail / Assignment Value |
+| :--- | :--- |
+| **Project Title** | LearnHub SUSL — Student Learning Platform & Resource Hub |
+| **Live Website URL** | `https://learnhubsusl.vercel.app` |
+| **Institution** | Sabaragamuwa University of Sri Lanka (SUSL) |
+| **Course Code / Module** | [Enter Course Code Here] |
+| **Submission Date** | [Enter Submission Date Here] |
 
-## Project files
+---
 
-- `index.html` — page content, navigation, homepage sections, FAQ, and footer.
-- `style.css` — colors, layout, typography, and responsive styles for phones and larger screens.
-- `script.js` — the 12 subject entries, search, subject detail pages, resource links, mobile menu, and FAQ interactions.
-- `assets/` — images used on the homepage. The current hero portrait is `girl.png`, and the student group image is `students.png`.
+## 1. PROJECT OVERVIEW
 
-## Main features
+### 1.1 Introduction
+**LearnHub SUSL** is a specialized, student-centric academic resource portal built specifically for undergraduate students at the Sabaragamuwa University of Sri Lanka (SUSL). The platform addresses the common challenge of fragmented study materials by consolidating first-semester lecture notes, presentation slides, video tutorials, and examination past papers into a single, highly accessible, and responsive digital interface.
 
-- Browse all 12 first-semester subjects.
-- Search subjects by code or name.
-- Open a subject to see its notes, slides, video tutorials, and past papers when links are available.
-- Use the back button to return to the subject list.
-- Expand FAQ answers by clicking the plus button.
-- Use the navigation links to jump to Home, Subjects, About, and FAQ.
-- View the responsive layout on desktop, tablet, or mobile.
+### 1.2 Target Audience
+* **Undergraduate Students:** Primarily first-year students navigating initial semester coursework and looking for organized revision materials.
+* **Faculty & Peers:** Collaborative learners seeking a centralized repository to share and access verified academic content.
 
-## Update subject information
+### 1.3 Core Objective
+To bridge the information gap for university undergraduates by delivering a fast, clean, and intuitive web application that organizes complex academic modules into searchable, easy-to-navigate resource feeds.
 
-Open `script.js` and edit the `subjects` list near the top. Each subject has a code, name, icon, and arrays for `notes`, `slides`, `videos`, and `papers`. Add resource objects to the appropriate array, for example:
+---
 
-```js
-{
-  title: "Lecture 1 notes",
-  description: "Introduction to the subject",
-  url: "https://example.com/resource.pdf"
-}
-```
+## 2. SITE ARCHITECTURE & NAVIGATION STRUCTURE
 
-Use a direct PDF link for downloadable notes or papers, and a YouTube URL for a video. Replace the example URL with a real, verified link.
+The website follows a clean single-page application (SPA) layout with distinct modular sections mapped out for instant user access:
 
-## Update the FAQ
+* **Header Navigation Bar:** Persistent top menu providing quick anchor links to *Home*, *Subjects*, *About*, and *FAQ*.
+* **Hero Section:** High-impact welcoming banner introducing the platform's primary purpose and providing an instant call-to-action button (*"Explore Subjects"*).
+* **Subjects Grid / Module Section:** Interactive repository listing all first-semester subjects, equipped with a real-time keyword search bar.
+* **FAQ / Help Section:** Expandable accordion component addressing common student questions regarding file downloads and platform navigation.
+* **Footer:** Institutional copyright notices, quick links, and developer attribution metadata.
 
-In `index.html`, find the section marked `FAQ Section`. Each question has a button and an answer below it. Copy an existing `.faq-item` to add another question, then edit its question and answer text.
+---
 
-## Replace homepage images
+## 3. KEY FEATURES & FUNCTIONALITY
 
-Place image files in `assets/`, then update the image paths in `index.html`. The current page refers to `assets/girl.png` and `assets/students.png`.
+1. **Real-Time Subject Search & Filtering:** 
+   * Enables students to instantly locate specific courses or modules by typing keywords or course codes into the search input, eliminating manual scrolling.
+2. **Centralized Academic Resource Repository:** 
+   * Provides structured access points categorized per subject, housing notes, presentation slides, video lectures, and past examination papers.
+3. **Responsive Mobile-First Layout:** 
+   * Designed to adapt seamlessly across diverse hardware viewports—from mobile smartphones and tablets to desktop monitors.
+4. **Interactive UI Components (Accordions):** 
+   * Utilizes clean expandable dropdown menus for frequently asked questions to maintain a clutter-free user interface.
+
+---
+
+## 4. TECHNOLOGIES USED (TECHNICAL STACK)
+
+The application is engineered using modern, lightweight frontend web technologies and cloud deployment tools optimized for high performance, rapid page rendering, and seamless serverless hosting:
+
+* **HyperText Markup Language (HTML5):**
+  * *Role:* Establishes the core semantic structure of the web pages, utilizing standard structural landmarks (`<header>`, `<main>`, `<section>`, `<footer>`), accessible heading hierarchies, and clean document flow.
+* **Cascading Style Sheets (CSS3):**
+  * *Role:* Handles visual presentation, responsive layout grids, custom typography, flexible box models (Flexbox), and mobile-first media query breakpoints to guarantee cross-device compatibility.
+* **JavaScript (ES6+):**
+  * *Role:* Powers client-side interactivity, DOM manipulation, dynamic content rendering, responsive navigation toggling, and the real-time subject search filtering algorithm.
+* **Vercel Cloud Hosting Platform:**
+  * *Role:* Acts as the production deployment environment, providing continuous integration/continuous deployment (CI/CD), global Edge network content caching, and high-availability serverless hosting accessible via `https://learnhubsusl.vercel.app`.
+
+---
+
+## 5. HOW TO ACCESS & USE (USER GUIDE)
+
+1. **Launch the Portal:** 
+   * Open any modern web browser (Google Chrome, Microsoft Edge, Safari, or Mozilla Firefox) and enter the URL: `https://learnhubsusl.vercel.app/`.
+2. **Explore Academic Modules:** 
+   * Click on the **"Explore Subjects"** button or scroll directly to the course grid. Use the built-in search bar to filter subjects by name or code.
+3. **Access Study Materials:** 
+   * Click on any subject card to view available sub-resources, including lecture notes, slides, video recordings, and past papers.
+4. **Troubleshoot & Get Assistance:** 
+   * Scroll to the bottom FAQ accordion section for quick answers regarding file access, website navigation, or support contacts.
