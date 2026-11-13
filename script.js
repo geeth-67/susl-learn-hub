@@ -120,6 +120,16 @@ menuToggle.addEventListener("click", () => {
   menuToggle.setAttribute("aria-expanded", String(isOpen));
 });
 
+// Expand or collapse FAQ answers on the homepage.
+document.querySelectorAll(".faq-question").forEach((button) => {
+  button.addEventListener("click", () => {
+    const answer = button.closest(".faq-item").querySelector(".faq-answer");
+    const isExpanded = button.getAttribute("aria-expanded") === "true";
+    button.setAttribute("aria-expanded", String(!isExpanded));
+    answer.hidden = isExpanded;
+  });
+});
+
 // The keyboard shortcut helps users jump straight to subject search.
 document.addEventListener("keydown", (event) => {
   if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
