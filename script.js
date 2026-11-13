@@ -5,7 +5,15 @@ const subjects = [
   { code: "IS1103", name: "Structured Programming Practicum", icon: "⌨", notes: [], slides: [], videos: [], papers: [] },
   { code: "IS1104", name: "Theories of Information Systems", icon: "◉", notes: [], slides: [], videos: [], papers: [] },
   { code: "IS1105", name: "Computer System Organization", icon: "▦", notes: [], slides: [], videos: [], papers: [] },
-  { code: "IS1106", name: "Foundations of Web Technologies", icon: "〈〉", notes: [], slides: [], videos: [], papers: [] },
+  { code: "IS1106", name: "Foundations of Web Technologies", icon: "〈〉", notes: [
+    { title: "Internet Fundamentals, WWW & Web Evolution", description: "Internet vs WWW, web evolution, static and dynamic pages, client-server architecture, and scripting.", url: "assets/notes/IS1106/IS1106 - Internet_WWW_Web_Evolution_Notes1.pdf" },
+    { title: "Web Browsers, Web Servers & Internet Protocols", description: "Browsers, web servers, TCP/IP, UDP, HTTP, FTP, DNS, communication, and URL components.", url: "assets/notes/IS1106/IS1106 - Web_Browsers_Servers_Protocols_Notes2.pdf" }
+  ], slides: [], videos: [
+    { title: "Introduction to Web Technologies", description: "Foundations of web technologies tutorial.", url: "https://www.youtube.com/watch?v=oC9bhOqik-A", thumbnail: "https://img.youtube.com/vi/oC9bhOqik-A/hqdefault.jpg" },
+    { title: "Web Technologies Tutorial", description: "An additional introduction to web technologies.", url: "https://www.youtube.com/watch?v=it1rTvBcfRg", thumbnail: "https://img.youtube.com/vi/it1rTvBcfRg/hqdefault.jpg" },
+    { title: "HTML Tutorial", description: "Learn the fundamentals of HTML.", url: "https://www.youtube.com/watch?v=AGDDdsiZ0Ko", thumbnail: "https://img.youtube.com/vi/AGDDdsiZ0Ko/hqdefault.jpg" },
+    { title: "CSS Tutorial", description: "Learn the fundamentals of CSS.", url: "https://www.youtube.com/watch?v=zofMnllkVfI", thumbnail: "https://img.youtube.com/vi/zofMnllkVfI/hqdefault.jpg" }
+  ], papers: [] },
   { code: "IS1107", name: "Personal Productivity with Information Technology", icon: "✦", notes: [], slides: [], videos: [], papers: [] },
   { code: "IS1108", name: "Fundamentals of Mathematics", icon: "∑", notes: [], slides: [], videos: [], papers: [] },
   { code: "IS1109", name: "Statistics & Probability Theory", icon: "▥", notes: [], slides: [], videos: [], papers: [] },
@@ -44,9 +52,10 @@ function resourceList(items, kind) {
   }
   return items.map((item) => `
     <div class="resource-item">
-      <span aria-hidden="true">${kind === "YouTube tutorials" ? "▷" : "▤"}</span>
+      ${item.thumbnail ? `<img class="resource-thumbnail" src="${item.thumbnail}" alt="" loading="lazy">` : `<span aria-hidden="true">${kind === "YouTube tutorials" ? "▷" : "▤"}</span>`}
       <div><strong>${item.title}</strong><small>${item.description || "Learning resource"}</small></div>
-      ${item.url ? `<a class="resource-action" href="${item.url}" target="_blank" rel="noopener noreferrer">${kind === "YouTube tutorials" ? "Watch ↗" : "View ↗"}</a>` : `<span class="resource-action disabled">Link unavailable</span>`}
+      ${item.url ? `<a class="resource-action" href="${item.url}" ${kind === "YouTube tutorials" ? 'target="_blank" rel="noopener noreferrer"' : 'target="_blank" rel="noopener"'}>${kind === "YouTube tutorials" ? "Watch ↗" : "View ↗"}</a>` : `<span class="resource-action disabled">Link unavailable</span>`}
+      ${kind === "Lecture notes" && item.url ? `<a class="resource-action" href="${item.url}" download>Download ↓</a>` : ""}
     </div>
   `).join("");
 }
@@ -60,7 +69,7 @@ function openSubject(code) {
     <button class="back-button" id="backToSubjects">← &nbsp; Back to Subjects</button>
     <header class="detail-heading"><div class="subject-code">${subject.code}</div><h1>${subject.name}</h1><p>Learning resources for your first semester</p></header>
     <div class="resource-grid">
-      <section class="resource-card"><h2>Lecture Notes</h2>${resourceList(subject.notes, "Lecture notes")}</section>
+      <section class="resource-card"><h2>${subject.code === "IS1106" ? "Short Notes" : "Lecture Notes"}</h2>${resourceList(subject.notes, "Lecture notes")}</section>
       <section class="resource-card"><h2>Lecture Slides</h2>${resourceList(subject.slides, "Lecture slides")}</section>
       <section class="resource-card"><h2>YouTube Tutorials</h2>${resourceList(subject.videos, "YouTube tutorials")}</section>
       <section class="resource-card"><h2>Past Papers</h2>${resourceList(subject.papers, "Past papers")}</section>
