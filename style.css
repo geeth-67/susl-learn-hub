@@ -814,6 +814,125 @@ a {
     padding: 12px
 }
 
+/* IS1106 subject page */
+.detail-view:has(.web-hero) {
+    max-width: 1180px;
+    padding-top: 34px
+}
+
+.web-hero {
+    min-height: 365px;
+    margin: 13px 0 31px;
+    padding: 24px 5% 28px 2%;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    align-items: center;
+    gap: 36px
+}
+
+.web-hero-copy .subject-code {
+    display: inline-block;
+    color: #fff;
+    background: #788f38;
+    padding: 7px 11px;
+    letter-spacing: 1.2px
+}
+
+.web-hero-copy h1 {
+    max-width: 580px;
+    margin: 18px 0 15px;
+    font: 800 clamp(36px, 4.4vw, 57px)/1.08 Manrope, sans-serif;
+    letter-spacing: -2.4px
+}
+
+.web-hero-copy p {
+    margin: 0;
+    color: #777a74;
+    font-size: 15px
+}
+
+.code-illustration {
+    position: relative;
+    min-height: 285px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eeefe7;
+    overflow: hidden
+}
+
+.code-illustration::before,
+.code-illustration::after {
+    content: "";
+    position: absolute;
+    border: 1px solid #cbd2b7;
+    border-radius: 50%
+}
+
+.code-illustration::before { width: 240px; height: 240px; right: -82px; top: -115px }
+.code-illustration::after { width: 180px; height: 180px; left: -88px; bottom: -100px }
+
+.laptop-screen {
+    z-index: 1;
+    width: 72%;
+    min-height: 180px;
+    border: 9px solid #272a25;
+    border-bottom-width: 13px;
+    border-radius: 11px 11px 3px 3px;
+    background: #fff;
+    box-shadow: 0 13px 25px #30362924
+}
+
+.screen-bar { height: 27px; display: flex; align-items: center; gap: 5px; padding: 0 9px; background: #f1f2ed; color: #777a74 }
+.screen-bar i { width: 6px; height: 6px; border-radius: 50%; background: #b8c48b }
+.screen-bar span { margin-left: auto; font-size: 8px }
+.code-lines { padding: 15px 17px; display: grid; gap: 8px; font: 600 11px monospace; color: #677f2d }
+.code-lines span { color: #777a74 }
+.code-lines em { color: #252822; font-style: normal }
+.laptop-base { position: absolute; z-index: 1; width: 82%; height: 12px; bottom: 45px; background: linear-gradient(#8c9085, #d9dbd3 35%, #9da096); clip-path: polygon(7% 0,93% 0,100% 100%,0 100%); border-radius: 0 0 9px 9px }
+.code-badge { position: absolute; z-index: 2; display: flex; align-items: center; gap: 7px; padding: 9px 12px; background: #fff; border: 1px solid var(--line); box-shadow: 0 6px 18px #30362912; color: #788f38; font-size: 14px; font-weight: 800 }
+.code-badge b { color: var(--ink); font-size: 10px }
+.badge-html { left: 3%; top: 35px }
+.badge-css { right: 4%; top: 75px }
+.badge-js { right: 6%; bottom: 34px }
+
+.is1106-resources .resource-card { padding: 23px 25px; border-radius: 2px }
+.panel-heading { display: flex; align-items: flex-start; gap: 13px; margin-bottom: 12px }
+.panel-number { color: #788f38; font: 700 10px Manrope, sans-serif; padding-top: 3px }
+.panel-heading h2 { margin: 0 0 5px }
+.panel-heading p { margin: 0; color: #85877f; font-size: 11px }
+.is1106-resources .resource-item { min-width: 0 }
+.is1106-resources .resource-item div { min-width: 0 }
+.is1106-resources .resource-item strong { line-height: 1.4 }
+.is1106-resources .resource-item small { line-height: 1.45 }
+.is1106-resources .resource-action { padding: 6px 8px; border: 1px solid #dfe4d2; background: #f7f8f3 }
+
+@media(max-width:760px) {
+    .detail-view:has(.web-hero) { padding-top: 24px }
+    .web-hero { grid-template-columns: 1fr; gap: 24px; padding: 12px 0 20px; margin: 10px 0 22px }
+    .web-hero-copy h1 { max-width: 600px }
+    .code-illustration { min-height: 255px }
+    .laptop-base { bottom: 36px }
+    .is1106-resources { grid-template-columns: 1fr }
+}
+
+@media(max-width:680px) {
+    .web-hero-copy h1 { font-size: 36px; letter-spacing: -1.5px }
+    .web-hero-copy p { font-size: 13px }
+    .code-illustration { min-height: 225px }
+    .laptop-screen { width: 74%; min-height: 160px; border-width: 7px; border-bottom-width: 11px }
+    .laptop-base { bottom: 29px }
+    .code-badge { padding: 7px 9px }
+    .badge-html { left: 2%; top: 25px }
+    .badge-css { right: 2%; top: 60px }
+    .badge-js { right: 3%; bottom: 22px }
+    .is1106-resources .resource-card { padding: 18px 15px }
+    .is1106-resources .resource-item { flex-wrap: wrap; gap: 8px }
+    .is1106-resources .resource-item div { flex-basis: calc(100% - 90px) }
+    .is1106-resources .resource-item .resource-action { margin-left: 44px }
+    .is1106-resources .resource-item .resource-action + .resource-action { margin-left: 0 }
+}
+
 /* Tablet and Mobile Layouts */
 @media(max-width:900px) {
     .nav-wrap {
