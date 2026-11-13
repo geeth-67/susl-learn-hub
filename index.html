@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f6f1">
+  <meta name="description" content="SUSL LearnHub — your first-semester Information Systems study resources in one place.">
+  <title>SUSL LearnHub | Learn Smarter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#home" aria-label="SUSL LearnHub home" data-home-link>
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 13.5c6.2-2 11.8-1.3 17 2.4v20c-5.2-3.7-10.8-4.4-17-2.4v-20Zm34 0c-6.2-2-11.8-1.3-17 2.4v20c5.2-3.7 10.8-4.4 17-2.4v-20Z"/><path d="M24 16v20"/><path d="m30 8 2.2 3.1 3.8.8-2.6 2.9.4 3.8-3.8-1.5-3.5 1.5.4-3.8-2.6-2.9 3.7-.8L30 8Z" class="spark"/></svg></span>
+        <span class="brand-copy"><strong>SUSL LearnHub</strong><small>Sabaragamuwa University of Sri Lanka</small></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a class="nav-link active" href="#home" data-home-link>Home</a>
+        <a class="nav-link" href="#subjects" data-scroll="subjects">Subjects</a>
+        <a class="nav-link" href="#resources" data-scroll="resources">Resources</a>
+        <a class="nav-link" href="#about" data-scroll="about">About</a>
+        <a class="nav-link" href="#contact" data-scroll="contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="#subjects" data-scroll="subjects">Explore Subjects <span>↗</span></a>
+    </div>
+  </header>
+
+  <main id="homeView">
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow"><i></i> YOUR FIRST SEMESTER, IN ONE PLACE</span>
+          <h1>LEARN<br>SMARTER.<br>STUDY BETTER.<br><span>ACHIEVE MORE.</span></h1>
+          <p class="hero-description">Your learning companion for Information Systems — all your first-semester study resources in one place.</p>
+          <a class="primary-button" href="#subjects" data-scroll="subjects">Explore 12 Subjects <span aria-hidden="true">↗</span></a>
+          <p class="hero-note">A clearer way to learn, one subject at a time.</p>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-photo-frame"><img class="hero-image" src="assets/girl.png" alt="University student carrying books"></div>
+          <span class="hero-shape shape-circle" aria-hidden="true"></span><span class="hero-shape shape-square" aria-hidden="true"></span>
+          <div class="image-caption"><span>01 / 12</span><strong>Start with what<br>you want to learn.</strong></div>
+          <span class="vertical-label">SABARAGAMUWA UNIVERSITY · INFORMATION SYSTEMS</span>
+        </div>
+      </div>
+      <div class="hero-bottom"><span>STUDY <b>·</b> LEARN <b>·</b> EXCEL</span><a href="#subjects" data-scroll="subjects">Scroll to explore <span>↓</span></a></div>
+    </section>
+
+    <section class="intro-strip" id="about"><p>MADE FOR YOUR JOURNEY</p><h2>Everything you need to make<br>this semester <em>count.</em></h2><img src="assets/students.png" alt="University students learning and celebrating together"></section>
+
+    <section class="subjects-section" id="subjects">
+      <div class="section-heading"><div><span class="section-kicker">YOUR FIRST SEMESTER</span><h2>Explore the subjects.</h2><p>Choose a subject to find its notes, slides, videos and past papers.</p></div>
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="subjectSearch" type="search" placeholder="Search subjects..." aria-label="Search subjects"><kbd>⌘ K</kbd></label>
+      </div>
+      <div class="subject-meta"><span><i></i> First Semester</span><span class="subject-count"><b id="subjectCount">12</b> Subjects</span></div>
+      <div class="subject-grid" id="subjectGrid" aria-live="polite"></div>
+      <p class="empty-state" id="emptyState" hidden>No subjects match your search. Try another code or name.</p>
+    </section>
+
+    <section class="resources-section" id="resources"><div><span class="section-kicker">YOUR LEARNING TOOLKIT</span><h2>One place for<br>the whole picture.</h2><p>Browse subject resources at your own pace. Find lecture notes, slides, videos and past papers together, right where you need them.</p></div>
+      <div class="resource-list"><div><span>01</span><strong>Lecture notes</strong><b>↗</b></div><div><span>02</span><strong>Lecture slides</strong><b>↗</b></div><div><span>03</span><strong>Video tutorials</strong><b>↗</b></div><div><span>04</span><strong>Past papers</strong><b>↗</b></div></div>
+    </section>
+  </main>
+
+  <main id="detailView" class="detail-view" hidden></main>
+
+  <footer class="site-footer" id="contact"><div class="footer-main"><div class="footer-brand"><a class="brand" href="#home" data-home-link><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 13.5c6.2-2 11.8-1.3 17 2.4v20c-5.2-3.7-10.8-4.4-17-2.4v-20Zm34 0c-6.2-2-11.8-1.3-17 2.4v20c5.2-3.7 10.8-4.4 17-2.4v-20Z"/><path d="M24 16v20"/><path d="m30 8 2.2 3.1 3.8.8-2.6 2.9.4 3.8-3.8-1.5-3.5 1.5.4-3.8-2.6-2.9 3.7-.8L30 8Z" class="spark"/></svg></span><span class="brand-copy"><strong>SUSL LearnHub</strong><small>Sabaragamuwa University of Sri Lanka</small></span></a><p>A friendly learning space for Information Systems students to study, learn, and excel.</p></div>
+      <div class="footer-nav"><strong>Explore</strong><a href="#subjects" data-scroll="subjects">Subjects</a><a href="#resources" data-scroll="resources">Resources</a></div><div class="footer-nav"><strong>LearnHub</strong><a href="#about" data-scroll="about">About</a><span>Contact details not provided</span></div></div>
+    <div class="footer-bottom"><span>© <span id="year"></span> SUSL LearnHub. Made for learners.</span><span>Study <b>·</b> Learn <b>·</b> Excel</span></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
