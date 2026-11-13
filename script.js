@@ -65,17 +65,41 @@ function openSubject(code) {
   if (!subject) return;
   homeView.hidden = true;
   detailView.hidden = false;
-  detailView.innerHTML = `
-    <button class="back-button" id="backToSubjects">← &nbsp; Back to Subjects</button>
-    <header class="detail-heading"><div class="subject-code">${subject.code}</div><h1>${subject.name}</h1><p>Learning resources for your first semester</p></header>
-    <div class="resource-grid">
-      <section class="resource-card"><h2>${subject.code === "IS1106" ? "Short Notes" : "Lecture Notes"}</h2>${resourceList(subject.notes, "Lecture notes")}</section>
-      <section class="resource-card"><h2>Lecture Slides</h2>${resourceList(subject.slides, "Lecture slides")}</section>
-      <section class="resource-card"><h2>YouTube Tutorials</h2>${resourceList(subject.videos, "YouTube tutorials")}</section>
-      <section class="resource-card"><h2>Past Papers</h2>${resourceList(subject.papers, "Past papers")}</section>
-    </div>
-    <p class="detail-note">Resource links will be added when verified materials are available.</p>
-  `;
+  if (subject.code === "IS1106") {
+    detailView.innerHTML = `
+      <button class="back-button" id="backToSubjects">← &nbsp; Back to Subjects</button>
+      <section class="web-hero" aria-labelledby="webSubjectTitle">
+        <div class="web-hero-copy">
+          <div class="subject-code">${subject.code}</div>
+          <h1 id="webSubjectTitle">${subject.name}</h1>
+          <p>Learning resources for your first semester.</p>
+        </div>
+        <div class="code-illustration" role="img" aria-label="Laptop displaying code with HTML, CSS, and JavaScript symbols">
+          <span class="code-badge badge-html">&lt;/&gt; <b>HTML</b></span>
+          <span class="code-badge badge-css"># <b>CSS</b></span>
+          <span class="code-badge badge-js">JS <b>JavaScript</b></span>
+          <div class="laptop-screen"><div class="screen-bar"><i></i><i></i><i></i><span>learnhub.html</span></div><div class="code-lines"><b>&lt;html&gt;</b><span>&nbsp; &lt;body&gt;</span><em>&nbsp;&nbsp; Learn something new</em><span>&nbsp; &lt;/body&gt;</span><b>&lt;/html&gt;</b></div></div>
+          <div class="laptop-base"></div>
+        </div>
+      </section>
+      <div class="resource-grid is1106-resources">
+        <section class="resource-card"><div class="panel-heading"><span class="panel-number">01</span><div><h2>Study Notes</h2><p>Review key concepts at your own pace.</p></div></div>${resourceList(subject.notes, "Lecture notes")}</section>
+        <section class="resource-card"><div class="panel-heading"><span class="panel-number">02</span><div><h2>YouTube Tutorials</h2><p>Watch lessons and strengthen your understanding.</p></div></div>${resourceList(subject.videos, "YouTube tutorials")}</section>
+      </div>
+    `;
+  } else {
+    detailView.innerHTML = `
+      <button class="back-button" id="backToSubjects">← &nbsp; Back to Subjects</button>
+      <header class="detail-heading"><div class="subject-code">${subject.code}</div><h1>${subject.name}</h1><p>Learning resources for your first semester</p></header>
+      <div class="resource-grid">
+        <section class="resource-card"><h2>Lecture Notes</h2>${resourceList(subject.notes, "Lecture notes")}</section>
+        <section class="resource-card"><h2>Lecture Slides</h2>${resourceList(subject.slides, "Lecture slides")}</section>
+        <section class="resource-card"><h2>YouTube Tutorials</h2>${resourceList(subject.videos, "YouTube tutorials")}</section>
+        <section class="resource-card"><h2>Past Papers</h2>${resourceList(subject.papers, "Past papers")}</section>
+      </div>
+      <p class="detail-note">Resource links will be added when verified materials are available.</p>
+    `;
+  }
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
