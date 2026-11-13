@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Navigation Bar Section -->
   <header class="site-header">
     <div class="nav-wrap">
       <a class="brand" href="#home" aria-label="SUSL LearnHub home" data-home-link>
@@ -22,15 +23,16 @@
       <nav class="main-nav" id="mainNav" aria-label="Main navigation">
         <a class="nav-link active" href="#home" data-home-link>Home</a>
         <a class="nav-link" href="#subjects" data-scroll="subjects">Subjects</a>
-        <a class="nav-link" href="#resources" data-scroll="resources">Resources</a>
         <a class="nav-link" href="#about" data-scroll="about">About</a>
-        <a class="nav-link" href="#contact" data-scroll="contact">Contact</a>
+        <a class="nav-link" href="#faq" data-scroll="faq">FAQ</a>
       </nav>
       <a class="nav-cta" href="#subjects" data-scroll="subjects">Explore Subjects <span>↗</span></a>
     </div>
   </header>
 
+  <!-- Homepage Sections -->
   <main id="homeView">
+    <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="hero-inner">
         <div class="hero-copy">
@@ -50,8 +52,10 @@
       <div class="hero-bottom"><span>STUDY <b>·</b> LEARN <b>·</b> EXCEL</span><a href="#subjects" data-scroll="subjects">Scroll to explore <span>↓</span></a></div>
     </section>
 
-    <section class="intro-strip" id="about"><p>MADE FOR YOUR JOURNEY</p><h2>Everything you need to make<br>this semester <em>count.</em></h2><img src="assets/students.png" alt="University students learning and celebrating together"></section>
+    <!-- About Section -->
+    <section class="intro-strip"><p>MADE FOR YOUR JOURNEY</p><h2>Everything you need to make<br>this semester <em>count.</em></h2><img src="assets/students.png" alt="University students learning and celebrating together"></section>
 
+    <!-- Subjects Section -->
     <section class="subjects-section" id="subjects">
       <div class="section-heading"><div><span class="section-kicker">YOUR FIRST SEMESTER</span><h2>Explore the subjects.</h2><p>Choose a subject to find its notes, slides, videos and past papers.</p></div>
         <label class="search-box"><span aria-hidden="true">⌕</span><input id="subjectSearch" type="search" placeholder="Search subjects..." aria-label="Search subjects"><kbd>⌘ K</kbd></label>
@@ -61,15 +65,25 @@
       <p class="empty-state" id="emptyState" hidden>No subjects match your search. Try another code or name.</p>
     </section>
 
-    <section class="resources-section" id="resources"><div><span class="section-kicker">YOUR LEARNING TOOLKIT</span><h2>One place for<br>the whole picture.</h2><p>Browse subject resources at your own pace. Find lecture notes, slides, videos and past papers together, right where you need them.</p></div>
-      <div class="resource-list"><div><span>01</span><strong>Lecture notes</strong><b>↗</b></div><div><span>02</span><strong>Lecture slides</strong><b>↗</b></div><div><span>03</span><strong>Video tutorials</strong><b>↗</b></div><div><span>04</span><strong>Past papers</strong><b>↗</b></div></div>
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+      <div class="faq-intro"><span class="section-kicker">QUICK ANSWERS</span><h2>Frequently asked<br>questions.</h2><p>Need a hand finding your way around LearnHub? Start here.</p></div>
+      <div class="faq-list">
+        <article class="faq-item"><h3><button class="faq-question" type="button" aria-expanded="false"><span>How do I find resources for a subject?</span><span class="faq-icon" aria-hidden="true">+</span></button></h3><div class="faq-answer" hidden><p>Browse the subject list and select a subject to open its detail page. Available notes, slides, videos and past papers are listed there.</p></div></article>
+        <article class="faq-item"><h3><button class="faq-question" type="button" aria-expanded="false"><span>How can I search for a subject?</span><span class="faq-icon" aria-hidden="true">+</span></button></h3><div class="faq-answer" hidden><p>Use the search box above the subject list. You can search by subject name or code.</p></div></article>
+        <article class="faq-item"><h3><button class="faq-question" type="button" aria-expanded="false"><span>Why is a resource not available yet?</span><span class="faq-icon" aria-hidden="true">+</span></button></h3><div class="faq-answer" hidden><p>Some subjects may not have resources listed yet. The subject page will show which notes, slides, videos or papers are currently available.</p></div></article>
+        <article class="faq-item"><h3><button class="faq-question" type="button" aria-expanded="false"><span>Can I use LearnHub on my phone?</span><span class="faq-icon" aria-hidden="true">+</span></button></h3><div class="faq-answer" hidden><p>Yes. LearnHub is designed to work on phones, tablets and desktop screens.</p></div></article>
+      </div>
     </section>
+
   </main>
 
+  <!-- Subject Detail View (filled by script.js) -->
   <main id="detailView" class="detail-view" hidden></main>
 
-  <footer class="site-footer" id="contact"><div class="footer-main"><div class="footer-brand"><a class="brand" href="#home" data-home-link><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 13.5c6.2-2 11.8-1.3 17 2.4v20c-5.2-3.7-10.8-4.4-17-2.4v-20Zm34 0c-6.2-2-11.8-1.3-17 2.4v20c5.2-3.7 10.8-4.4 17-2.4v-20Z"/><path d="M24 16v20"/><path d="m30 8 2.2 3.1 3.8.8-2.6 2.9.4 3.8-3.8-1.5-3.5 1.5.4-3.8-2.6-2.9 3.7-.8L30 8Z" class="spark"/></svg></span><span class="brand-copy"><strong>SUSL LearnHub</strong><small>Sabaragamuwa University of Sri Lanka</small></span></a><p>A friendly learning space for Information Systems students to study, learn, and excel.</p></div>
-      <div class="footer-nav"><strong>Explore</strong><a href="#subjects" data-scroll="subjects">Subjects</a><a href="#resources" data-scroll="resources">Resources</a></div><div class="footer-nav"><strong>LearnHub</strong><a href="#about" data-scroll="about">About</a><span>Contact details not provided</span></div></div>
+  <!-- Footer Section -->
+  <footer class="site-footer" id="about"><div class="footer-main"><div class="footer-brand"><a class="brand" href="#home" data-home-link><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 13.5c6.2-2 11.8-1.3 17 2.4v20c-5.2-3.7-10.8-4.4-17-2.4v-20Zm34 0c-6.2-2-11.8-1.3-17 2.4v20c5.2-3.7 10.8-4.4 17-2.4v-20Z"/><path d="M24 16v20"/><path d="m30 8 2.2 3.1 3.8.8-2.6 2.9.4 3.8-3.8-1.5-3.5 1.5.4-3.8-2.6-2.9 3.7-.8L30 8Z" class="spark"/></svg></span><span class="brand-copy"><strong>SUSL LearnHub</strong><small>Sabaragamuwa University of Sri Lanka</small></span></a><p>A friendly learning space for Information Systems students to study, learn, and excel.</p></div>
+      <div class="footer-nav"><strong>Explore</strong><a href="#subjects" data-scroll="subjects">Subjects</a><a href="#faq" data-scroll="faq">FAQ</a></div><div class="footer-about"><strong>About LearnHub</strong><p>LearnHub brings first-semester Information Systems study materials together in one place, helping SUSL students find subject resources and keep learning at their own pace.</p></div></div>
     <div class="footer-bottom"><span>© <span id="year"></span> SUSL LearnHub. Made for learners.</span><span>Study <b>·</b> Learn <b>·</b> Excel</span></div></footer>
   <script src="script.js"></script>
 </body>
