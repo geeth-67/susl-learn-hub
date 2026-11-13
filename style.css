@@ -42,6 +42,7 @@ a {
     display: none !important
 }
 
+/* Navigation Bar Section */
 .site-header {
     height: 78px;
     position: sticky;
@@ -143,6 +144,7 @@ a {
     display: none
 }
 
+/* Hero Section */
 .hero {
     max-width: 1320px;
     margin: auto;
@@ -338,6 +340,7 @@ a {
     font-size: 15px
 }
 
+/* About Section */
 .intro-strip {
     max-width: 1320px;
     margin: 0 auto;
@@ -376,6 +379,7 @@ a {
     filter: saturate(.82)
 }
 
+/* Subjects Section */
 .subjects-section {
     max-width: 1250px;
     margin: 0 auto 100px;
@@ -395,14 +399,13 @@ a {
 }
 
 .section-heading h2,
-.resources-section h2 {
+.faq-intro h2 {
     font: 800 clamp(32px, 4vw, 48px)/1.1 Manrope, sans-serif;
     letter-spacing: -2.3px;
     margin: 12px 0 9px
 }
 
-.section-heading p,
-.resources-section p {
+.section-heading p {
     font-size: 13px;
     color: var(--muted);
     margin: 0;
@@ -533,50 +536,91 @@ a {
     padding: 35px 0 0
 }
 
-.resources-section {
+/* FAQ Section */
+.faq-section {
     max-width: 1180px;
     margin: 0 auto 110px;
     padding: 0 36px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12%;
-    align-items: center
+    grid-template-columns: .8fr 1.2fr;
+    gap: 10%;
+    align-items: start
 }
 
-.resources-section h2 {
+.faq-intro h2 {
+    font: 800 clamp(32px, 4vw, 46px)/1.1 Manrope, sans-serif;
+    letter-spacing: -2px;
     margin: 14px 0
 }
 
-.resources-section p {
-    max-width: 430px
+.faq-intro p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7
 }
 
-.resource-list {
+.faq-list {
     border-top: 1px solid var(--line)
 }
 
-.resource-list>div {
-    height: 62px;
-    border-bottom: 1px solid var(--line);
+.faq-item {
+    border-bottom: 1px solid var(--line)
+}
+
+.faq-item h3 {
+    margin: 0
+}
+
+.faq-question {
+    width: 100%;
+    min-height: 72px;
     display: grid;
-    grid-template-columns: 55px 1fr 20px;
-    align-items: center
+    grid-template-columns: 1fr 28px;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 0;
+    border: 0;
+    background: none;
+    color: var(--ink);
+    text-align: left;
+    cursor: pointer
 }
 
-.resource-list span {
-    color: #788f38;
-    font-size: 10px
+.faq-question span:first-child {
+    font: 700 14px Manrope, sans-serif
 }
 
-.resource-list strong {
-    font: 700 13px Manrope, sans-serif
+.faq-icon {
+    width: 24px;
+    height: 24px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #a5a89d;
+    border-radius: 50%;
+    font: 400 18px/1 "DM Sans", sans-serif;
+    transition: transform .2s, background .2s, color .2s
 }
 
-.resource-list b {
-    font-size: 15px;
-    font-weight: 400
+.faq-question[aria-expanded="true"] .faq-icon {
+    background: var(--ink);
+    color: white;
+    transform: rotate(45deg)
 }
 
+.faq-question:focus-visible {
+    outline: 2px solid #788f38;
+    outline-offset: 3px
+}
+
+.faq-answer p {
+    margin: -2px 35px 20px 0;
+    max-width: 560px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7
+}
+
+/* Footer Section */
 .site-footer {
     background: var(--ink);
     color: #e4e5df;
@@ -628,6 +672,19 @@ a {
     color: #84877f
 }
 
+.footer-about strong {
+    color: #fff;
+    font-size: 11px
+}
+
+.footer-about p {
+    max-width: 300px;
+    margin: 12px 0 0;
+    color: #aaada4;
+    font-size: 11px;
+    line-height: 1.7
+}
+
 .footer-bottom {
     border-top: 1px solid #ffffff24;
     padding-top: 14px;
@@ -642,6 +699,7 @@ a {
 }
 
 /* Subject details retain the existing resource and back-navigation behavior. */
+/* Subject Detail Section */
 .detail-view {
     max-width: 1104px;
     min-height: 64vh;
@@ -747,6 +805,7 @@ a {
     padding: 12px
 }
 
+/* Tablet and Mobile Layouts */
 @media(max-width:900px) {
     .nav-wrap {
         padding: 0 22px;
@@ -981,7 +1040,7 @@ a {
     }
 
     .section-heading h2,
-    .resources-section h2 {
+    .faq-intro h2 {
         font-size: 34px
     }
 
@@ -1006,19 +1065,15 @@ a {
         font-size: 12px
     }
 
-    .resources-section {
+    .faq-section {
         padding: 0 22px;
         margin-bottom: 70px;
         grid-template-columns: 1fr;
-        gap: 30px
+        gap: 25px
     }
 
-    .resources-section p {
+    .faq-intro p {
         font-size: 12px
-    }
-
-    .resource-list>div {
-        height: 56px
     }
 
     .site-footer {
