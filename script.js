@@ -22,6 +22,13 @@ const subjects = [
   { code: "IS-EGP-1101", name: "General English I", icon: "A", notes: [], slides: [], videos: [], papers: [] }
 ];
 
+const resourceCategories = [
+  { key: "notes", title: "Lecture Notes", description: "Review key concepts at your own pace.", kind: "Lecture notes" },
+  { key: "slides", title: "Lecture Slides", description: "Browse practical lessons and presentations.", kind: "Lecture slides" },
+  { key: "videos", title: "YouTube Tutorials", description: "Watch lessons and strengthen your understanding.", kind: "YouTube tutorials" },
+  { key: "papers", title: "Past Papers", description: "Practice with papers and sample questions.", kind: "Past papers" }
+];
+
 const homeView = document.getElementById("homeView");
 const detailView = document.getElementById("detailView");
 const subjectGrid = document.getElementById("subjectGrid");
@@ -60,46 +67,47 @@ function resourceList(items, kind) {
   `).join("");
 }
 
+function resourceSections(subject, featured) {
+  return resourceCategories.map((category, index) => {
+    const heading = featured
+      ? `<div class="panel-heading"><span class="panel-number">${String(index + 1).padStart(2, "0")}</span><div><h2>${category.title === "Lecture Notes" ? "Study Notes" : category.title}</h2><p>${category.description}</p></div></div>`
+      : `<h2>${category.title}</h2>`;
+    return `<section class="resource-card">${heading}${resourceList(subject[category.key], category.kind)}</section>`;
+  }).join("");
+}
+
 function openSubject(code) {
   const subject = subjects.find((item) => item.code === code);
   if (!subject) return;
   homeView.hidden = true;
   detailView.hidden = false;
-  if (subject.code === "IS1106") {
-    detailView.innerHTML = `
-      <button class="back-button" id="backToSubjects">← &nbsp; Back to Subjects</button>
-      <section class="web-hero" aria-labelledby="webSubjectTitle">
-        <div class="web-hero-copy">
-          <div class="subject-code">${subject.code}</div>
-          <h1 id="webSubjectTitle">${subject.name}</h1>
-          <p>Learning resources for your first semester.</p>
-        </div>
-        <div class="code-illustration" role="img" aria-label="Laptop displaying code with HTML, CSS, and JavaScript symbols">
-          <span class="code-badge badge-html">&lt;/&gt; <b>HTML</b></span>
-          <span class="code-badge badge-css"># <b>CSS</b></span>
-          <span class="code-badge badge-js">JS <b>JavaScript</b></span>
-          <div class="laptop-screen"><div class="screen-bar"><i></i><i></i><i></i><span>learnhub.html</span></div><div class="code-lines"><b>&lt;html&gt;</b><span>&nbsp; &lt;body&gt;</span><em>&nbsp;&nbsp; Learn something new</em><span>&nbsp; &lt;/body&gt;</span><b>&lt;/html&gt;</b></div></div>
-          <div class="laptop-base"></div>
-        </div>
-      </section>
-      <div class="resource-grid is1106-resources">
-        <section class="resource-card"><div class="panel-heading"><span class="panel-number">01</span><div><h2>Study Notes</h2><p>Review key concepts at your own pace.</p></div></div>${resourceList(subject.notes, "Lecture notes")}</section>
-        <section class="resource-card"><div class="panel-heading"><span class="panel-number">02</span><div><h2>YouTube Tutorials</h2><p>Watch lessons and strengthen your understanding.</p></div></div>${resourceList(subject.videos, "YouTube tutorials")}</section>
+  const isFeatured = subject.code === "IS1106";
+  const hero = isFeatured ? `
+    <section class="web-hero" aria-labelledby="webSubjectTitle">
+      <div class="web-hero-copy">
+        <div class="subject-code">${subject.code}</div>
+        <h1 id="webSubjectTitle">${subject.name}</h1>
+        <p>Learning resources for your first semester.</p>
       </div>
-    `;
-  } else {
-    detailView.innerHTML = `
-      <button class="back-button" id="backToSubjects">← &nbsp; Back to Subjects</button>
-      <header class="detail-heading"><div class="subject-code">${subject.code}</div><h1>${subject.name}</h1><p>Learning resources for your first semester</p></header>
-      <div class="resource-grid">
-        <section class="resource-card"><h2>Lecture Notes</h2>${resourceList(subject.notes, "Lecture notes")}</section>
-        <section class="resource-card"><h2>Lecture Slides</h2>${resourceList(subject.slides, "Lecture slides")}</section>
-        <section class="resource-card"><h2>YouTube Tutorials</h2>${resourceList(subject.videos, "YouTube tutorials")}</section>
-        <section class="resource-card"><h2>Past Papers</h2>${resourceList(subject.papers, "Past papers")}</section>
+      <div class="code-illustration" role="img" aria-label="Laptop displaying code with HTML, CSS, and JavaScript symbols">
+        <span class="code-badge badge-html">&lt;/&gt; <b>HTML</b></span>
+        <span class="code-badge badge-css"># <b>CSS</b></span>
+        <span class="code-badge badge-js">JS <b>JavaScript</b></span>
+        <div class="laptop-screen"><div class="screen-bar"><i></i><i></i><i></i><span>learnhub.html</span></div><div class="code-lines"><b>&lt;html&gt;</b><span>&nbsp; &lt;body&gt;</span><em>&nbsp;&nbsp; Learn something new</em><span>&nbsp; &lt;/body&gt;</span><b>&lt;/html&gt;</b></div></div>
+        <div class="laptop-base"></div>
       </div>
-      <p class="detail-note">Resource links will be added when verified materials are available.</p>
-    `;
-  }
+    </section>
+  ` : `
+    <header class="detail-heading"><div class="subject-code">${subject.code}</div><h1>${subject.name}</h1><p>Learning resources for your first semester</p></header>
+  `;
+  detailView.innerHTML = `
+    <button class="back-button" id="backToSubjects">← &nbsp; Back to Subjects</button>
+    ${hero}
+    <div class="resource-grid${isFeatured ? " is1106-resources" : ""}">
+      ${resourceSections(subject, isFeatured)}
+    </div>
+    ${isFeatured ? "" : '<p class="detail-note">Resource links will be added when verified materials are available.</p>'}
+  `;
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
